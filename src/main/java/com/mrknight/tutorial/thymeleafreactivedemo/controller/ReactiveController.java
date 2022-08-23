@@ -16,9 +16,9 @@ public class ReactiveController {
 
     @RequestMapping("/lista")
     public String lista(final Model modelo) {
-        IReactiveDataDriverContextVariable listaReactiva = new ReactiveDataDriverContextVariable(repository.buscarTodos(),1);
+        IReactiveDataDriverContextVariable listReactive = new ReactiveDataDriverContextVariable(repository.buscarTodos(),1);
 
-        modelo.addAttribute("listaProductos", listaReactiva);
+        modelo.addAttribute("listaProductos", listReactive);
 
         return "lista";
     }
