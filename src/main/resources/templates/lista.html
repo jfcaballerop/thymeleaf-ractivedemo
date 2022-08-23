@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Insert title here</title>
-
-
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link data-th-href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link data-th-href="@{/css/main.css}" rel="stylesheet">
 </head>
 <body>
-<table>
-    <!--<tr th:each="producto:${listaProductos}">-->
-    <!--<td th:text="${producto.numero}"></td>-->
-    <!--<td th:text="${producto.concepto}"></td>-->
-    <!--<td th:text="${producto.importe}"></td>-->
+<div class="container">
 
-    <!--</tr>-->
+    <div class="row">
+        <div id="title">
+            <h1>Spring WebFlux + Thymeleaf</h1>
+        </div>
+        <table id="allMovies" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Numero</th>
+                <th>Concepto</th>
+                <th>Importe</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-th-each="producto : ${listaProductos}">
+                <td>[[${producto.numero}]]</td>
+                <td>[[${producto.concepto}]]</td>
+                <td>[[${producto.importe}]]</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <tr data-th-each="producto : ${listaProductos}">
-        <td>[[${producto.numero}]]</td>
-        <td>[[${producto.concepto}]]</td>
-        <td>[[${producto.importe}]]</td>
-    </tr>
-</table>
-
+</div>
 </body>
 </html>
