@@ -1,6 +1,6 @@
 package com.mrknight.tutorial.thymeleafreactivedemo.controller;
 
-import com.mrknight.tutorial.thymeleafreactivedemo.repository.ProductoRepository;
+import com.mrknight.tutorial.thymeleafreactivedemo.services.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,11 +12,11 @@ import org.thymeleaf.spring5.context.webflux.ReactiveDataDriverContextVariable;
 public class ReactiveController {
 
     @Autowired
-    private ProductoRepository repository;
+    private ProductoService service;
 
     @RequestMapping("/lista")
     public String lista(final Model modelo) {
-        IReactiveDataDriverContextVariable listReactive = new ReactiveDataDriverContextVariable(repository.buscarTodos(),1);
+        IReactiveDataDriverContextVariable listReactive = new ReactiveDataDriverContextVariable(service.buscarTodos(), 1);
 
         modelo.addAttribute("listaProductos", listReactive);
 
